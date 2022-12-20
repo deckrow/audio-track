@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { currentLocalTime } from '@/utils/currentLocalTime';
 import type { Track } from '@/stores/track';
 import TrackItem from './TrackItem.vue';
 
@@ -11,6 +12,9 @@ defineProps<{
 <template>
 	<div class="player">
 		<TrackItem :track="track" />
+
+		<p>{{ track.duration }}</p>
+		<p>{{ currentLocalTime(track.time) }}</p>
 
 		<div class="progress">
 			<div
